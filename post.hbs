@@ -2,7 +2,7 @@
 
 <header id="site-head">
     {{#if @blog.logo}}<a id="blog-logo" href="{{@blog.url}}"><div class="bloglogo" style="background: url({{@blog.logo}})"></div></a>{{/if}}
-    <h1 class="blog-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+    <h2 class="blog-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h2>
     <h2 class="blog-description">
         {{@blog.description}}
     </h2>
@@ -43,6 +43,8 @@
                onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                 <span class="hidden">Google+</span>
             </a>
+            <p class="info">&nbspor discuss in Hacker News&nbsp</p>
+            <a href="https://news.ycombinator.com/submit" class="hn-button" data-title="{{title}}" data-url="{{url absolute="true"}}" data-count="horizontal">Vote on Hacker News</a>
         </section>
 
         <footer class="post-footer">
@@ -59,26 +61,27 @@
         </footer>
 
         {{/post}}
-    
-    <!-- Disqus comments
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = '%YOURDISQUSNAME%';
-        
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        var disqus_identifier = '{{post.id}}';
 
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a> 
-    -->
+
+        <div id="disqus_thread">
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'gadr';
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                var disqus_identifier = '{{post.id}}';
+
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
 
     </article>
 
 </main>
+<script type="text/javascript">var HN=[];HN.factory=function(e){return function(){HN.push([e].concat(Array.prototype.slice.call(arguments,0)))};},HN.on=HN.factory("on"),HN.once=HN.factory("once"),HN.off=HN.factory("off"),HN.emit=HN.factory("emit"),HN.load=function(){var e="hn-button.js";if(document.getElementById(e))return;var t=document.createElement("script");t.id=e,t.src="//hn-button.herokuapp.com/hn-button.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)},HN.load();</script>
